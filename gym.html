@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Summer Upper Body Bulk Plan</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --card-2: #1f2937;
+      --text: #f9fafb;
+      --muted: #cbd5e1;
+      --subtle: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #22c55e;
+      --border: rgba(255, 255, 255, 0.11);
+      --shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 35%),
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.14), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 56px;
+    }
+
+    header {
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.02;
+      margin: 0 0 14px;
+      letter-spacing: -0.05em;
+    }
+
+    .intro {
+      color: var(--muted);
+      max-width: 780px;
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin: 26px 0;
+    }
+
+    .summary-card {
+      background: rgba(17, 24, 39, 0.78);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .summary-card strong {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 2px;
+    }
+
+    .summary-card span {
+      color: var(--subtle);
+      font-size: 0.92rem;
+    }
+
+    .tabs-shell {
+      background: rgba(17, 24, 39, 0.72);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .tab-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 14px;
+      background: rgba(15, 23, 42, 0.72);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+    }
+
+    .tab-button {
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: rgba(31, 41, 55, 0.75);
+      padding: 10px 13px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease, border 0.15s ease;
+    }
+
+    .tab-button:hover {
+      transform: translateY(-1px);
+      color: var(--text);
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+
+    .tab-button.active {
+      background: linear-gradient(135deg, var(--accent), #2563eb);
+      color: white;
+      border-color: transparent;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 26px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .day-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 18px;
+    }
+
+    .day-header h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      margin: 0;
+      letter-spacing: -0.04em;
+    }
+
+    .day-header p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .badge {
+      flex: none;
+      background: rgba(56, 189, 248, 0.13);
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .exercise-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .exercise {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 16px;
+      background: rgba(31, 41, 55, 0.72);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 15px 16px;
+    }
+
+    .exercise-name {
+      font-weight: 800;
+      font-size: 1.03rem;
+    }
+
+    .exercise-note {
+      color: var(--subtle);
+      font-size: 0.9rem;
+      margin-top: 2px;
+    }
+
+    .sets {
+      color: white;
+      background: rgba(34, 197, 94, 0.16);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      padding: 7px 10px;
+      border-radius: 10px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .info-sections {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .info-box {
+      background: rgba(17, 24, 39, 0.76);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .info-box h3 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+    }
+
+    .info-box ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .info-box li {
+      margin: 7px 0;
+    }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 16px;
+      margin-top: 14px;
+      background: rgba(31, 41, 55, 0.62);
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .schedule-table th {
+      color: #e0f2fe;
+      background: rgba(56, 189, 248, 0.11);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .schedule-table td {
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .schedule-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .rest-card {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.14), rgba(56, 189, 248, 0.1));
+      border: 1px solid rgba(34, 197, 94, 0.28);
+      border-radius: 18px;
+      padding: 22px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .footer-note {
+      margin-top: 22px;
+      color: var(--subtle);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    @media (max-width: 850px) {
+      .summary-grid,
+      .info-sections {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .day-header {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 20px, 1120px);
+        padding-top: 20px;
+      }
+
+      .summary-grid,
+      .info-sections {
+        grid-template-columns: 1fr;
+      }
+
+      .tab-buttons {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding: 12px;
+      }
+
+      .tab-button {
+        white-space: nowrap;
+      }
+
+      .tab-content {
+        padding: 18px;
+      }
+
+      .exercise {
+        grid-template-columns: 1fr;
+      }
+
+      .sets {
+        width: fit-content;
+      }
+
+      .schedule-table {
+        font-size: 0.92rem;
+      }
+
+      .schedule-table th,
+      .schedule-table td {
+        padding: 10px;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+
+      .tabs-shell,
+      .summary-card,
+      .info-box,
+      .exercise {
+        box-shadow: none;
+      }
+
+      .tab-buttons {
+        display: none;
+      }
+
+      .tab-content {
+        display: block !important;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="eyebrow">12 Week Summer Bulk</div>
+      <h1>Upper Body Specialization Plan</h1>
+      <p class="intro">
+        A 5-day hypertrophy-focused gym plan built around maximizing upper-body muscle while keeping legs to once per week.
+        Priorities: side delts, upper chest, lats, arms, rear delts, and enough recovery to actually grow.
+      </p>
+    </header>
+
+    <section class="summary-grid" aria-label="Plan summary">
+      <div class="summary-card">
+        <strong>5 Days</strong>
+        <span>Training per week</span>
+      </div>
+      <div class="summary-card">
+        <strong>2 Days</strong>
+        <span>Full rest per week</span>
+      </div>
+      <div class="summary-card">
+        <strong>170–190g</strong>
+        <span>Protein target per day</span>
+      </div>
+      <div class="summary-card">
+        <strong>+0.25–0.5kg</strong>
+        <span>Target gain per week</span>
+      </div>
+    </section>
+
+    <section class="tabs-shell">
+      <nav class="tab-buttons" aria-label="Workout days">
+        <button class="tab-button active" data-tab="overview">Overview</button>
+        <button class="tab-button" data-tab="monday">Monday</button>
+        <button class="tab-button" data-tab="tuesday">Tuesday</button>
+        <button class="tab-button" data-tab="wednesday">Wednesday</button>
+        <button class="tab-button" data-tab="thursday">Thursday</button>
+        <button class="tab-button" data-tab="friday">Friday</button>
+        <button class="tab-button" data-tab="saturday">Saturday</button>
+        <button class="tab-button" data-tab="sunday">Sunday</button>
+        <button class="tab-button" data-tab="rules">Rules</button>
+      </nav>
+
+      <section class="tab-content active" id="overview">
+        <div class="day-header">
+          <div>
+            <h2>Weekly Schedule</h2>
+            <p>The structure balances upper-body priority with recovery and shoulder health.</p>
+          </div>
+          <span class="badge">Best default: 5 days/week</span>
+        </div>
+
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Focus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Monday</td><td>Chest + Triceps</td></tr>
+            <tr><td>Tuesday</td><td>Back + Biceps</td></tr>
+            <tr><td>Wednesday</td><td>Shoulders + Arms</td></tr>
+            <tr><td>Thursday</td><td>Rest</td></tr>
+            <tr><td>Friday</td><td>Chest + Back</td></tr>
+            <tr><td>Saturday</td><td>Legs + Delts</td></tr>
+            <tr><td>Sunday</td><td>Rest</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-sections">
+          <div class="info-box">
+            <h3>Main Muscle Priorities</h3>
+            <ul>
+              <li>Side delts</li>
+              <li>Upper chest</li>
+              <li>Lats</li>
+              <li>Arms</li>
+              <li>Rear delts</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h3>Bulk Targets</h3>
+            <ul>
+              <li>Protein: 170–190g/day</li>
+              <li>Calories: maintenance + 300–500/day</li>
+              <li>Gain rate: 0.25–0.5kg/week</li>
+              <li>Sleep: ideally 8+ hours</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-content" id="monday">
+        <div class="day-header">
+          <div>
+            <h2>Monday — Chest + Triceps</h2>
+            <p>Heavy chest start, then triceps. Optional lateral raises for extra delt growth.</p>
+          </div>
+          <span class="badge">Push Emphasis</span>
+        </div>
+        <ul class="exercise-list">
+          <li class="exercise"><div><div class="exercise-name">Bench Press</div><div class="exercise-note">Controlled reps. Leave 1–2 reps in reserve.</div></div><span class="sets">4 × 5–8</span></li>
+          <li class="exercise"><div><div class="exercise-name">Incline Dumbbell Press</div><div class="exercise-note">Upper chest focus.</div></div><span class="sets">3 × 8–12</span></li>
+          <li class="exercise"><div><div class="exercise-name">Machine Chest Press</div><div class="exercise-note">Stable pressing volume.</div></div><span class="sets">3 × 8–12</span></li>
+          <li class="exercise"><div><div class="exercise-name">Cable Fly</div><div class="exercise-note">Stretch and squeeze. Push close to failure.</div></div><span class="sets">3 × 12–20</span></li>
+          <li class="exercise"><div><div class="exercise-name">Tricep Pushdown</div><div class="exercise-note">Elbows tucked, full extension.</div></div><span class="sets">3 × 10–15</span></li>
+          <li class="exercise"><div><div class="exercise-name">Overhead Cable Tricep Extension</div><div class="exercise-note">Long-head triceps focus.</div></div><span class="sets">3 × 10–15</span></li>
+          <li class="exercise"><div><div class="exercise-name">Optional Lateral Raises</div><div class="exercise-note">Add only if shoulders feel fresh.</div></div><span class="sets">3 × 15–20</span></li>
+        </ul>
+      </section>
+
+      <section class="tab-content" id="tuesday">
+        <div class="day-header">
+          <div>
+            <h2>Tuesday — Back + Biceps</h2>
+            <p>Lat width, rowing balance, rear delt/scapular health, then biceps.</p>
+          </div>
+          <span class="badge">Pull Emphasis</span>
+        </div>
+        <ul class="exercise-list">
+          <li class="exercise"><div><div class="exercise-name">Pull-Ups or Assisted Pull-Ups</div><div class="exercise-note">Use assistance if needed to keep clean reps.</div></div><span class="sets">4 sets</span></li>
+          <li class="exercise"><div><div class="exercise-name">Lat Pulldown</div><div class="exercise-note">Drive elbows down, avoid swinging.</div></div><span class="sets">3 × 8–12</span></li>
+          <li class="exercise"><div><div class="exercise-name">Single-Arm Cable Pulldown</div><div class="exercise-note">Great lat isolation and side-to-side control.</div></div><span class="sets">3 × 10–15</span></li>
+          <li class="exercise"><div><div class="exercise-name">Seated Cable Row</div><div class="exercise-note">Keep chest tall and squeeze shoulder blades.</div></div><span class="sets">3 × 8–12</span></li>
+          <li class="exercise"><div><div class="exercise-name">Face Pull</div><div class="exercise-note">Shoulder health and rear delts.</div></div><span class="sets">3 × 15–20</span></li>
+          <li class="exercise"><div><div class="exercise-name">Dumbbell Curl</div><div class="exercise-note">Strict form, full range.</div></div><span class="sets">3 × 8–12</span></li>
+          <li class="exercise"><div><div class="exercise-name">Hammer Curl</div><div class="exercise-note">Brachialis and forearm thickness.</div></div><span class="sets">3 × 10–15</span></li>
+        </ul>
+      </section>
+
+      <section class="tab-content" id="wednesday">
+        <div class="day-header">
+          <div>
+            <h2>Wednesday — Shoulders + Arms</h2>
+            <p>Delt and arm hypertrophy day. Prioritize lateral and rear delts over ego pressing.</p>
+          </div>
+          <span class="badge">Delt/Arm Focus</span>
+        </div>
+        <ul class="exercise-list">
+          <li class="exercise"><div><div class="exercise-name">Seated Dumbbell Shoulder Press</div><div class="exercise-note">Moderate-heavy, do not grind ugly reps.</div></div><span class="sets">3 × 8–10</span></li>
+          <li class="exercise"><div><div class="exercise-name">Dumbbell Lateral Raise</div><div class="exercise-note">Controlled, slight pause at the top.</div></div><span class="sets">4 × 12–20</span></li>
+          <li class="exercise"><div><div class="exercise-name">Cable Lateral Raise</div><div class="exercise-note">Constant tension for side delts.</div></div><span class="sets">3 × 12–20</span></li>
+          <li class="exercise"><div><div class="exercise-name">Rear Delt Fly</div><div class="exercise-note">Do not turn it into a row.</div></div><span class="sets">4 × 12–20</span></li>
+          <li class="exercise"><div><div class="exercise-name">Incline Dumbbell Curl</div><div class="exercise-note">Stretch-focused biceps work.</div></div><span class="sets">3 × 10–15</span></li>
+          <li class="exercise"><div><div class="exercise-name">Preacher Curl</div><div class="exercise-note">Strict reps, avoid bouncing.</div></div><span class="sets">2 × 10–15</span></li>
+          <li class="exercise"><div><div class="exercise-name">Rope Pushdown</div><div class="exercise-note">Good pump work for triceps.</div></div><span class="sets">3 × 10–15</span></li>
+          <li class="exercise"><div><div class="exercise-name">Skull Crusher or Machine Dip</div><div class="exercise-note">Choose the one that feels better on elbows.</div></div><span class="sets">2 × 10–12</span></li>
+        </ul>
+      </section>
+
+      <section class="tab-content" id="thursday">
+        <div class="day-header">
+          <div>
+            <h2>Thursday — Rest</h2>
+            <p>This rest day helps your Friday and Saturday sessions stay productive.</p>
+          </div>
+          <span class="badge">Recovery</span>
+        </div>
+        <div class="rest-card">
+          Take the day off from lifting. Walking, light cycling, stretching, or mobility work is fine.
+          Avoid turning this into another hard workout. The goal is to recover and grow.
+        </div>
+      </section>
+
+      <section class="tab-content" id="friday">
+        <div class="day-header">
+          <div>
+            <h2>Friday — Chest + Back</h2>
+            <p>Balanced upper day with heavy incline pressing and heavy rows.</p>
+          </div>
+          <span class="badge">Upper Balance</span>
+        </div>
+        <ul class="exercise-list">
+          <li class="exercise"><div><div class="exercise-name">Incline Barbell Bench</div><div class="exercise-note">Upper chest priority. Leave 1–2 reps in reserve.</div></div><span class="sets">4 × 5–8</span></li>
+          <li class="exercise"><div><div class="exercise-name">Chest-Supported Row</div><div class="exercise-note">Heavy row without lower-back fatigue.</div></div><span class="sets">4 × 8–12</span></li>
+          <li class="exercise"><div><div class="exercise-name">Flat Dumbbell Press</div><div class="exercise-note">Full range, stable shoulder position.</div></div><span class="sets">3 × 8–12</span></li>
+          <li class="exercise"><div><div class="exercise-name">T-Bar Row or Machine Row</div><div class="exercise-note">Back thickness focus.</div></div><span class="sets">3 × 8–12</span></li>
+          <li class="exercise"><div><div class="exercise-name">Pec Deck</div><div class="exercise-note">Controlled squeeze and stretch.</div></div><span class="sets">2–3 × 12–20</span></li>
+          <li class="exercise"><div><div class="exercise-name">Rear Delt Fly or Face Pull</div><div class="exercise-note">Keep shoulders balanced.</div></div><span class="sets">3 × 15–20</span></li>
+          <li class="exercise"><div><div class="exercise-name">Optional Curls</div><div class="exercise-note">Only if biceps feel recovered.</div></div><span class="sets">2 × 10–15</span></li>
+          <li class="exercise"><div><div class="exercise-name">Optional Triceps</div><div class="exercise-note">Only if elbows and triceps feel good.</div></div><span class="sets">2 × 10–15</span></li>
+        </ul>
+      </section>
+
+      <section class="tab-content" id="saturday">
+        <div class="day-header">
+          <div>
+            <h2>Saturday — Legs + Delts</h2>
+            <p>One serious leg day plus extra delts for upper-body aesthetics.</p>
+          </div>
+          <span class="badge">Legs Once Weekly</span>
+        </div>
+        <ul class="exercise-list">
+          <li class="exercise"><div><div class="exercise-name">Leg Press or Squat</div><div class="exercise-note">Pick the one you can progress safely.</div></div><span class="sets">4 × 8–12</span></li>
+          <li class="exercise"><div><div class="exercise-name">Romanian Deadlift</div><div class="exercise-note">Hamstrings and glutes. Keep back neutral.</div></div><span class="sets">3 × 8–12</span></li>
+          <li class="exercise"><div><div class="exercise-name">Leg Curl</div><div class="exercise-note">Controlled hamstring isolation.</div></div><span class="sets">3 × 10–15</span></li>
+          <li class="exercise"><div><div class="exercise-name">Leg Extension or Bulgarian Split Squat</div><div class="exercise-note">Quad accessory. Choose based on preference.</div></div><span class="sets">2–3 × 10–15</span></li>
+          <li class="exercise"><div><div class="exercise-name">Calf Raise</div><div class="exercise-note">Pause at stretch and top.</div></div><span class="sets">4 × 10–20</span></li>
+          <li class="exercise"><div><div class="exercise-name">Lateral Raise</div><div class="exercise-note">Extra side-delt volume.</div></div><span class="sets">4 × 15–20</span></li>
+          <li class="exercise"><div><div class="exercise-name">Rear Delt Fly</div><div class="exercise-note">Rear delt and shoulder balance.</div></div><span class="sets">3 × 15–20</span></li>
+          <li class="exercise"><div><div class="exercise-name">Cable Crunch</div><div class="exercise-note">Core work. Add load gradually.</div></div><span class="sets">3 × 10–15</span></li>
+        </ul>
+      </section>
+
+      <section class="tab-content" id="sunday">
+        <div class="day-header">
+          <div>
+            <h2>Sunday — Rest</h2>
+            <p>Full rest day. Eat, sleep, and recover.</p>
+          </div>
+          <span class="badge">Full Rest</span>
+        </div>
+        <div class="rest-card">
+          No lifting today. This is where a lot of the actual growth happens.
+          Keep protein high, stay hydrated, and prepare for Monday.
+        </div>
+      </section>
+
+      <section class="tab-content" id="rules">
+        <div class="day-header">
+          <div>
+            <h2>Progression + Execution Rules</h2>
+            <p>Simple rules to make the plan work for the full 12 weeks.</p>
+          </div>
+          <span class="badge">Follow These</span>
+        </div>
+
+        <div class="info-sections">
+          <div class="info-box">
+            <h3>Progressive Overload</h3>
+            <ul>
+              <li>Use the listed rep ranges.</li>
+              <li>When you hit the top of the rep range on all sets, increase weight.</li>
+              <li>Example: for 3 × 8–12, once you hit 12/12/12, go heavier.</li>
+              <li>Small jumps are fine. Progress does not need to be dramatic every week.</li>
+            </ul>
+          </div>
+
+          <div class="info-box">
+            <h3>Effort Level</h3>
+            <ul>
+              <li>Compounds: stop with 1–2 reps in reserve.</li>
+              <li>Isolation lifts: stop with 0–1 reps in reserve.</li>
+              <li>Do not fail heavy bench, rows, shoulder press, squats, or RDLs often.</li>
+              <li>Failure is more acceptable on raises, curls, pushdowns, flies, and rear delts.</li>
+            </ul>
+          </div>
+
+          <div class="info-box">
+            <h3>Deload</h3>
+            <ul>
+              <li>Weeks 1–4: build volume and technique.</li>
+              <li>Weeks 5–7: push progression hard.</li>
+              <li>Week 8: deload with about half the sets and lighter weights.</li>
+              <li>Weeks 9–12: push hard again.</li>
+            </ul>
+          </div>
+
+          <div class="info-box">
+            <h3>Nutrition</h3>
+            <ul>
+              <li>Protein: 170–190g/day.</li>
+              <li>Calories: maintenance + 300–500/day.</li>
+              <li>Goal gain: 0.25–0.5kg/week.</li>
+              <li>If weight is not moving after 2 weeks, add 150–250 calories/day.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <p class="footer-note">
+      Keep form clean, progress slowly, and prioritize recovery. Shoulder or elbow pain means reduce volume before it becomes an injury.
+    </p>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll(".tab-button");
+    const tabs = document.querySelectorAll(".tab-content");
+
+    function activateTab(tabId) {
+      buttons.forEach(button => {
+        button.classList.toggle("active", button.dataset.tab === tabId);
+      });
+
+      tabs.forEach(tab => {
+        tab.classList.toggle("active", tab.id === tabId);
+      });
+
+      if (history.replaceState) {
+        history.replaceState(null, "", "#" + tabId);
+      }
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => activateTab(button.dataset.tab));
+    });
+
+    const initialTab = window.location.hash.replace("#", "");
+    if (initialTab && document.getElementById(initialTab)) {
+      activateTab(initialTab);
+    }
+  </script>
+</body>
+</html>
