@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 150" width="240" height="150" font-family="Lato, Verdana, Helvetica, sans-serif" role="img" aria-labelledby="t">
+  <title id="t">Schematic: philosophical, legal and religious texts become question-answer pairs, which test several LLMs for factual and moral alignment</title>
+  <defs>
+    <marker id="ah" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#999"/>
+    </marker>
+  </defs>
+  <rect width="240" height="150" rx="4" fill="#faf8f4"/>
+  <g font-size="9" fill="#888" text-anchor="middle">
+    <text x="30" y="18">texts</text>
+    <text x="85" y="18">questions</text>
+    <text x="135" y="18">models</text>
+    <text x="204" y="18">alignment</text>
+  </g>
+  <!-- source texts -->
+  <g fill="#fff" stroke="#c6b89e">
+    <path d="M4,30 h46 l6,6 v18 h-52 z"/>
+    <path d="M4,64 h46 l6,6 v18 h-52 z"/>
+    <path d="M4,98 h46 l6,6 v18 h-52 z"/>
+  </g>
+  <g font-size="9" fill="#333" text-anchor="middle">
+    <text x="30" y="48">Philosophy</text>
+    <text x="30" y="82">Law</text>
+    <text x="30" y="116">Religion</text>
+  </g>
+  <!-- arrows to question-answer pairs -->
+  <g stroke="#999" stroke-width="1" fill="none" marker-end="url(#ah)">
+    <path d="M57,45 L68,66"/>
+    <path d="M57,79 L68,79"/>
+    <path d="M57,113 L68,92"/>
+  </g>
+  <!-- question-answer pairs -->
+  <g fill="#fff">
+    <rect x="71" y="54" width="28" height="15" rx="3" stroke="#1772d0"/>
+    <rect x="71" y="72" width="28" height="15" rx="3" stroke="#f09228"/>
+    <rect x="71" y="90" width="28" height="15" rx="3" stroke="#1772d0"/>
+  </g>
+  <g font-size="9" fill="#333" text-anchor="middle">
+    <text x="85" y="65">Q</text>
+    <text x="85" y="83">A</text>
+    <text x="85" y="101">Q</text>
+  </g>
+  <text x="85" y="120" font-size="9" fill="#888" text-anchor="middle">100K+</text>
+  <!-- arrow to models -->
+  <path d="M102,79 L111,79" stroke="#999" fill="none" marker-end="url(#ah)"/>
+  <!-- models -->
+  <g fill="#fff" stroke="#aaa">
+    <rect x="114" y="42" width="42" height="18" rx="9"/>
+    <rect x="114" y="70" width="42" height="18" rx="9"/>
+    <rect x="114" y="98" width="42" height="18" rx="9"/>
+  </g>
+  <g font-size="9" fill="#333" text-anchor="middle">
+    <text x="135" y="54.5">GPT-4</text>
+    <text x="135" y="82.5">Claude</text>
+    <text x="135" y="110.5">Llama 3</text>
+  </g>
+  <!-- arrow to scores -->
+  <path d="M159,79 L168,79" stroke="#999" fill="none" marker-end="url(#ah)"/>
+  <!-- schematic scores: factual vs moral, no values (direction of the finding only) -->
+  <line x1="172" y1="120" x2="236" y2="120" stroke="#bbb"/>
+  <rect x="180" y="44" width="16" height="76" fill="#1772d0"/>
+  <rect x="212" y="72" width="16" height="48" fill="#f09228"/>
+  <g font-size="9" fill="#555" text-anchor="middle">
+    <text x="188" y="133">factual</text>
+    <text x="220" y="133">moral</text>
+  </g>
+</svg>

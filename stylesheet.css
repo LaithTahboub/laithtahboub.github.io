@@ -177,13 +177,18 @@ span.highlight {
 /* Media cell: a still image with a looping video stacked on top that fades in on hover. */
 .media-cell {
   padding: 16px;
-  width: 200px;
+  width: 240px;
   vertical-align: middle;
 }
 
 .media {
-  width: 200px;
+  width: 240px;
   position: relative;
+}
+
+.media-square {
+  width: 200px;
+  margin: 0 auto;
 }
 
 .media img,
@@ -212,7 +217,7 @@ span.highlight {
 }
 
 .tag-box {
-  width: 200px;
+  width: 240px;
   height: 120px;
   border-radius: 4px;
   display: flex;
@@ -221,6 +226,17 @@ span.highlight {
   text-align: center;
   color: #222;
   font-size: 18px;
+}
+
+.logo-box {
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  box-sizing: border-box;
+}
+
+.logo-box img {
+  width: 68%;
+  height: auto;
 }
 
 .status {
@@ -287,7 +303,12 @@ span.highlight {
   }
 
   .tag-box {
-    height: 56px;
+    height: 72px;
+  }
+
+  .logo-box img {
+    width: auto;
+    height: 32px;
   }
 
   .tag-box h2 {
